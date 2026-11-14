@@ -1,0 +1,53 @@
+/* ===== AJUSTES PARA CELULAR (cargar al final, después de styles.css) ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;   /* elimina el espacio en blanco a la derecha */
+}
+
+img, iframe, video, canvas, svg { max-width: 100%; }
+
+/* ---- Menú: en celular solo se ve la hamburguesa ---- */
+@media (max-width: 1023px) {
+  header nav { display: none !important; }
+  #burger { display: inline-flex !important; }
+  #menu { display: none !important; }
+  #menu.abierto { display: block !important; }
+}
+@media (min-width: 1024px) {
+  #burger, #menu { display: none !important; }
+  header nav { display: flex !important; }
+}
+
+/* ---- Contenedor principal ---- */
+main { width: 100%; padding-left: 1rem; padding-right: 1rem; }
+
+/* ---- Tablas con scroll interno, no empujan la página ---- */
+.overflow-x-auto { max-width: 100%; -webkit-overflow-scrolling: touch; }
+table { max-width: 100%; }
+@media (max-width: 640px) {
+  table th, table td { padding: .5rem !important; font-size: .75rem; }
+}
+
+/* ---- Tarjetas y formularios ---- */
+.neon-border-card { max-width: 100%; }
+form input, form select, form textarea { max-width: 100%; }
+
+/* ---- Portal de notas ---- */
+.pn-seccion { width: 100%; max-width: 100%; margin: 0 auto; padding: 1rem; }
+.pn-buscador { display: flex; flex-direction: column; gap: .75rem; width: 100%; }
+.pn-buscador input, .pn-buscador button { width: 100%; }
+#pn-resultado { max-width: 100%; overflow-x: auto; }
+
+/* ---- Carruseles / barras horizontales ---- */
+#track > *, #year-bar > * { flex-shrink: 0; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* ---- Títulos más pequeños en celular ---- */
+@media (max-width: 480px) {
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.35rem !important; }
+}
