@@ -1,0 +1,9 @@
+/* Estilos de los comunicados */
+.cm-lista{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.cm-card{background:#fff;color:#12263a;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px #1ea7ff55}
+.cm-card img{width:100%;display:block;max-height:340px;object-fit:cover}
+.cm-txt{padding:12px 14px}
+.cm-txt small{color:#4a5f73}
+.cm-txt h3{margin:4px 0;color:#0b3c68;font-weight:700}
+.cm-txt p{margin:0;font-size:14px}
+.cm-vacio{color:#9fdcff;text-align:center}

@@ -1,0 +1,26 @@
+/* Enlaza en <head>: <link rel="stylesheet" href="notas.css"> */
+.pn-seccion{max-width:1000px;margin:30px auto;padding:0 16px;font-family:inherit}
+.pn-titulo{text-align:center;color:#ffffff;font-size:2rem;font-weight:700;margin:0 0 4px}
+.pn-sub{text-align:center;color:#9fdcff;margin:0 0 16px}
+.pn-buscador{background:#fff;border-radius:14px;padding:18px;box-shadow:0 0 0 2px #1ea7ff,0 6px 20px rgba(11,60,104,.15);display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.pn-buscador input{flex:1 1 220px;max-width:320px;padding:12px;font-size:18px;text-align:center;letter-spacing:2px;border:2px solid #0b3c68;border-radius:10px;background:#fff9e0}
+.pn-buscador button{padding:12px 24px;font-size:16px;font-weight:600;color:#fff;background:#0b3c68;border:0;border-radius:10px;cursor:pointer}
+.pn-buscador button:hover{background:#4a565e}
+#pn-resultado{margin-top:20px}
+.pn-msg{padding:14px;border-radius:10px;background:#fff;text-align:center;color:#12263a}.pn-err{color:#b00020}
+.pn-ficha{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(11,60,104,.12);color:#12263a}
+.pn-datos{padding:16px 20px;display:flex;flex-wrap:wrap;gap:6px 30px;border-bottom:1px solid #d5e4f0}
+.pn-datos b{color:#0b3c68}.pn-nom{font-size:18px;flex-basis:100%}
+.pn-scroll{overflow-x:auto}
+.pn-ficha table{border-collapse:collapse;width:100%;min-width:560px}
+.pn-ficha th{background:#0b3c68;color:#fff;padding:10px;font-size:14px}
+.pn-ficha td{padding:9px 10px;border-top:1px solid #dbe7f1;font-size:14px}
+.pn-ficha td.pn-n{text-align:center;font-weight:700;width:90px}
+.pn-ficha tr.pn-area td{background:#f0f7fd;color:#0b3c68;font-weight:700}
+.pn-AD{background:#9dc3e6}.pn-A{background:#c6e0b4}.pn-B{background:#ffe699}.pn-C{background:#f4b084}
+.pn-leyenda{padding:12px 20px;font-size:13px;color:#4a5f73;border-top:1px solid #d5e4f0}
+.pn-seccion{position:relative;z-index:30}
+.pn-buscador input,.pn-buscador button{position:relative;z-index:31;pointer-events:auto;user-select:text;-webkit-user-select:text}
+.pn-buscador input{color:#0b3c68 !important;caret-color:#0b3c68}
+.pn-buscador input::placeholder{color:#7a8a99}
+   

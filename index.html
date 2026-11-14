@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I.E. República de Argentina</title>
+  
+  <!-- Estilos CSS -->
+      <link rel="stylesheet" href="notas.css">
+      <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#070c19] text-slate-100 min-h-screen relative font-sans overflow-x-hidden selection:bg-cyan-500 selection:text-slate-950">
+
+  <!-- Fondo animado de estrellas y partículas -->
+  <canvas id="bg-particles" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  
+  <!-- BARRA DE NAVEGACIÓN NEÓN -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#070c19]/90 border-b border-cyan-500/30 shadow-[0_4px_20px_rgba(0,212,255,0.15)]">
+    <div class="flex items-center gap-3">
+  <img src="imagenes/logo.jpeg" alt="Logo I.E. República de Argentina" class="w-10 h-10 rounded-full object-cover border border-cyan-400 shadow-[0_0_10px_rgba(0,212,255,0.4)]">
+  <span class="font-lexend font-bold text-lg sm:text-xl text-white tracking-wide">República de Argentina</span>
+</div>
+      <!-- Menú Desktop -->
+      <nav class="hidden lg:flex items-center gap-1 text-xs font-semibold text-slate-300">
+        <a href="#nosotros" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Nosotros</a>
+        <a href="#historia-promociones" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Escoltas</a>
+        <a href="#logros" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Logros</a>
+        <a href="#honor" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Honor</a>
+        <a href="#staff" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Maestros</a>
+        <a href="#actualidad" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Comunicados</a>
+        <a href="#horarios" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Horarios</a>
+        <a href="#justificacion" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Justificar</a>
+        <a href="#citas-whatsapp" class="px-3 py-2 rounded-lg hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors">Citas</a>
+        <a href="#portales" class="px-4 py-2 rounded-full bg-cyan-500 text-slate-950 font-extrabold hover:bg-cyan-400 transition-all shadow-[0_0_15px_rgba(0,212,255,0.5)]"><i class="fa-solid fa-lock mr-1"></i> Portales</a>
+      </nav>
+
+      <!-- Botón Menú Móvil -->
+      <button id="burger" aria-expanded="false" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg text-cyan-400 hover:bg-cyan-500/15 focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Desplegable Móvil -->
+    <div id="menu" class="hidden lg:hidden bg-[#070c19]/95 border-b border-cyan-500/30 px-4 pt-2 pb-6 space-y-2 text-sm font-semibold text-slate-300">
+      <a href="#nosotros" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Nosotros</a>
+      <a href="#historia-promociones" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Escoltas</a>
+      <a href="#logros" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Logros</a>
+      <a href="#honor" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Honor</a>
+      <a href="#staff" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Maestros</a>
+      <a href="#actualidad" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Comunicados</a>
+      <a href="#horarios" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Horarios</a>
+      <a href="#justificacion" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Justificar</a>
+      <a href="#citas-whatsapp" class="block px-3 py-2 rounded-lg hover:bg-cyan-500/10 hover:text-cyan-400">Citas</a>
+      <a href="#portales" class="block px-3 py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-center shadow-[0_0_15px_rgba(0,212,255,0.5)]">Portales</a>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="relative z-10 space-y-28 py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- HERO / INICIO -->
+    <section id="inicio" class="text-center space-y-6 pt-6">
+      <div class="inline-block px-5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 text-xs font-bold uppercase tracking-widest shadow-[0_0_12px_rgba(0,212,255,0.2)] mb-2">
+        Educación Secundaria de Excelencia
+      </div>
+      <h1 id="hero-title" class="font-lexend font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight drop-shadow-[0_0_20px_rgba(0,212,255,0.3)]">
+        I.E. República de Argentina
+      </h1>
+      <p class="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
+        Formando líderes con disciplina, honor e innovación en Villa de Pasco, distrito de Tinyahuarco.
+      </p>
+
+      <!-- SEDE PRINCIPAL FIJA (SIN BOTONES NI CARRUSEL) -->
+<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden border border-cyan-500/40 relative shadow-lg shadow-cyan-950/50 my-6">
+  <!-- Imagen de fondo a tamaño completo -->
+  <img src="imagenes/colegio2.jpeg" alt="Sede Principal Villa de Pasco" class="w-full h-80 sm:h-96 object-cover">
+  
+  <!-- Degradado para que el texto resalte -->
+  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent flex flex-col justify-end p-6">
+    <h3 class="text-xl font-bold text-white drop-shadow-md">Sede Principal Villa de Pasco</h3>
+    <p class="text-sm text-cyan-300">Instalaciones de la I.E. República de Argentina</p>
+  </div>
+</div>
+
+      <!-- ACCESOS RÁPIDOS -->
+      <div class="pt-10">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-lexend font-bold text-lg text-white drop-shadow-[0_0_8px_rgba(0,212,255,0.4)]">Accesos Rápidos</h3>
+          <div class="flex gap-2">
+            <button id="prev" class="p-2.5 rounded-full border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/20 shadow-[0_0_10px_rgba(0,212,255,0.2)]"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="next" class="p-2.5 rounded-full border border-cyan-500/40 text-cyan-400 hover:bg-cyan-500/20 shadow-[0_0_10px_rgba(0,212,255,0.2)]"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div id="track" class="flex gap-4 overflow-x-auto scroll-smooth pb-4 no-scrollbar"></div>
+        <div id="dots" class="flex justify-center gap-1.5 mt-2"></div>
+      </div>
+    </section>
+<!-- NOSOTROS -->
+<section id="nosotros" class="space-y-6">
+  <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+    <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Identidad Institucional</h2>
+    <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Misión y Visión Compartida</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Misión Compartida -->
+    <div class="neon-border-card p-6">
+      <h3 class="font-lexend font-bold text-lg text-white mb-2">Misión Compartida</h3>
+      <p class="text-slate-300 text-sm leading-relaxed text-justify">
+        La Institución Educativa "República de Argentina" de Villa de Pasco, forma estudiantes competentes, autónomos, críticos y reflexivos con base científico humanístico centrada en el desarrollo de competencias, con práctica de valores y cuidando el medio ambiente, con docentes activos, participativos, comprometidos y empáticos que brindan una educación dinámica, interactiva e innovadora utilizando la tecnología como recurso de enseñanza y aprendizaje; y padres de familia comprometidos y predispuestos al cambio con responsabilidad e involucramiento en el trabajo pedagógico de sus menores hijos.
+      </p>
+    </div>
+
+    <!-- Visión Compartida -->
+    <div class="neon-border-card p-6">
+      <h3 class="font-lexend font-bold text-lg text-white mb-2">Visión Compartida</h3>
+      <p class="text-slate-300 text-sm leading-relaxed text-justify">
+        Al 2027 la Institución Educativa "República de Argentina" de Villa de Pasco, cuenta con acreditación y ofrece una educación científica humanístico centrada en el desarrollo de capacidades para formar estudiantes competentes, autónomos, críticos, reflexivos, líderes, e innovadores, con práctica de valores fundamentada en el cuidando socio emocional y del medio ambiente, para ser protagonista del desarrollo sustentable de la comunidad, a través del emprendimiento, el trabajo colaborativo y creando espacios que permitan resolver problemas del contexto personal, familiar, local, regional y nacional, con docentes activos, participativos, comprometidos y empáticos que desarrollan estrategias dinámicas, interactiva e innovadoras utilizando la tecnología como recurso de aprendizaje; y padres de familia comprometidos y predispuestos al cambio con responsabilidad e involucramiento en el trabajo pedagógico de sus menores hijos.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- SECCIÓN: UNIFORMES Y NORMAS INSTITUCIONALES -->
+<section id="uniformes-normas" class="py-12 px-4 bg-slate-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Título de la sección -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold tracking-wider text-cyan-400 mb-2">PRESENTACIÓN Y DISCIPLINA ESCOLAR</h2>
+      <p class="text-gray-300">I.E. República de Argentina - Villa de Pasco</p>
+    </div>
+
+    <!-- CONTENEDOR DE UNIFORMES -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      
+      <!-- Uniforme Diario -->
+      <div class="bg-slate-800 border border-cyan-500/30 rounded-2xl p-6 shadow-lg shadow-cyan-950/50 flex flex-col items-center">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-4">Uniforme Escolar Diario</h3>
+        <div class="w-full h-64 bg-slate-700 rounded-xl overflow-hidden mb-4 flex items-center justify-center border border-slate-600">
+          <!-- Reemplaza 'ruta-imagen-uniforme.jpg' por la ubicación real de tu foto -->
+          <img src="imagenes/uniforme-diario.jpg" alt="Uniforme Escolar Diario" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm text-gray-300 text-center">
+          Uso correcto del uniforme oficial de la institución, manteniendo el orden, la limpieza y la formalidad en las horas de clase y formaciones.
+        </p>
+      </div>
+
+      <!-- Buzo Escolar -->
+      <div class="bg-slate-800 border border-cyan-500/30 rounded-2xl p-6 shadow-lg shadow-cyan-950/50 flex flex-col items-center">
+        <h3 class="text-xl font-semibold text-cyan-300 mb-4">Buzo Escolar (Educación Física)</h3>
+        <div class="w-full h-64 bg-slate-700 rounded-xl overflow-hidden mb-4 flex items-center justify-center border border-slate-600">
+          <!-- Reemplaza 'ruta-imagen-buzo.jpg' por la ubicación real de tu foto -->
+          <img src="imagenes/buzo-escolar.jpg" alt="Buzo Escolar" class="w-full h-full object-cover">
+        </div>
+        <p class="text-sm text-gray-300 text-center">
+          Indumentaria reglamentaria destinada exclusivamente para las prácticas de educación física, talleres y actividades deportivas autorizadas.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- TABLA DE NORMAS Y SANCIONES -->
+    <div class="bg-slate-800 border border-cyan-500/30 rounded-2xl p-6 shadow-lg shadow-cyan-950/50">
+      <h3 class="text-2xl font-bold text-center text-cyan-300 mb-6">Normas de Convivencia y Régimen de Sanciones</h3>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-700 text-cyan-400">
+              <th class="p-3">N°</th>
+              <th class="p-3">Norma Institucional</th>
+              <th class="p-3">Sanción por Incumplimiento</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm text-gray-300 divide-y divide-slate-700">
+            <tr>
+              <td class="p-3 font-bold">1</td>
+              <td class="p-3">Asistir puntualmente a la institución educativa en el horario establecido.</td>
+              <td class="p-3">Registro de tardanza en el cuaderno de incidencias y amonestación verbal.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">2</td>
+              <td class="p-3">Portar correctamente el uniforme escolar completo y limpio todos los días.</td>
+              <td class="p-3">Llamado de atención y reporte en la agenda escolar al padre/madre.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">3</td>
+              <td class="p-3">Mantener el respeto mutuo hacia docentes, directivos, personal administrativo y compañeros.</td>
+              <td class="p-3">Acta de compromiso conductual con presencia del tutor y/o dirección.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">4</td>
+              <td class="p-3">Prohibido el uso de teléfonos celulares o equipos electrónicos distractores durante las horas de clase.</td>
+              <td class="p-3">Retención temporal del equipo hasta el final de la jornada y entrega con padres.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">5</td>
+              <td class="p-3">Cuidar la infraestructura, carpetas, laboratorios y áreas verdes de la institución.</td>
+              <td class="p-3">Reposición o reparación del bien dañado bajo responsabilidad del estudiante.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">6</td>
+              <td class="p-3">Participar con orden y disciplina en las formaciones y actos cívicos oficiales.</td>
+              <td class="p-3">Cumplimiento de tareas cívico-educativas asignadas por el comité de disciplina.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">7</td>
+              <td class="p-3">Mantener limpio el aula y los espacios comunes, promoviendo el cuidado ambiental.</td>
+              <td class="p-3">Participación en las brigadas de orden y limpieza al término de las clases.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">8</td>
+              <td class="p-3">Justificar formalmente las inasistencias a través de un documento firmado por el apoderado.</td>
+              <td class="p-3">Restricción de justificación extemporánea tras 48 horas sin aviso previo.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">9</td>
+              <td class="p-3">Prohibido sustraer pertenencias ajenas o alterar documentos institucionales.</td>
+              <td class="p-3">Inicio de proceso disciplinario severo según reglamento interno escolar.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold">10</td>
+              <td class="p-3">Evitar cualquier acto de hostigamiento, bullying o violencia escolar dentro o fuera del plantel.</td>
+              <td class="p-3">Derivación inmediata a tutoría, TOEPE y aplicación de medida correctiva máxima.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- SECCIÓN PLAN DE ESTUDIOS -->
+<section id="plan-estudios" class="plan-container space-y-6">
+  
+  <div class="text-center space-y-2">
+    <div class="inline-block border-l-4 border-cyan-400 pl-4">
+      <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Plan de Estudios</h2>
+    </div>
+    <p class="text-cyan-400 text-xs sm:text-sm font-medium">Formación integral para un mejor futuro • I.E. República de Argentina</p>
+  </div>
+
+  <div class="plan-card-main space-y-6">
+    
+    <!-- ¿Qué ofrecemos? (Resumen visual) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pb-4 border-b border-slate-700/60">
+      <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+        <i class="fa-solid fa-check-circle text-emerald-400 text-lg mt-0.5"></i>
+        <div>
+          <h4 class="font-bold text-white text-sm font-lexend">Formación Sólida</h4>
+          <p class="text-slate-300 text-xs">Desarrollo académico riguroso en todas las áreas.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+        <i class="fa-solid fa-check-circle text-emerald-400 text-lg mt-0.5"></i>
+        <div>
+          <h4 class="font-bold text-white text-sm font-lexend">Habilidades para la Vida</h4>
+          <p class="text-slate-300 text-xs">Competencias prácticas para el día a día.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-lg border border-slate-800">
+        <i class="fa-solid fa-check-circle text-emerald-400 text-lg mt-0.5"></i>
+        <div>
+          <h4 class="font-bold text-white text-sm font-lexend">Valores Institucionales</h4>
+          <p class="text-slate-300 text-xs">Convivencia, respeto y superación constante.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de Áreas Curriculares y Horas Semanales -->
+    <div>
+      <h3 class="font-lexend font-bold text-base text-cyan-300 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-book-open text-cyan-400"></i> Distribución de Horas Semanales por Grado
+      </h3>
+      
+      <div class="overflow-x-auto rounded-lg border border-slate-700/60 bg-slate-950/40">
+        <table class="plan-table">
+          <thead>
+            <tr>
+              <th class="w-1/2">Áreas Curriculares</th>
+              <th class="text-center">1°</th>
+              <th class="text-center">2°</th>
+              <th class="text-center">3°</th>
+              <th class="text-center">4°</th>
+              <th class="text-center">5°</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-300">
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-calculator text-cyan-400 text-xs"></i> Matemática</td>
+              <td class="text-center">6</td><td class="text-center">6</td><td class="text-center">6</td><td class="text-center">6</td><td class="text-center">6</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-comments text-cyan-400 text-xs"></i> Comunicación</td>
+              <td class="text-center">5</td><td class="text-center">5</td><td class="text-center">5</td><td class="text-center">5</td><td class="text-center">5</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-globe text-cyan-400 text-xs"></i> Inglés</td>
+              <td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-palette text-amber-400 text-xs"></i> Arte y Cultura</td>
+              <td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-landmark text-amber-400 text-xs"></i> Ciencias Sociales</td>
+              <td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-user-shield text-emerald-400 text-xs"></i> Desarrollo personal, ciudadanía y cívica</td>
+              <td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-person-running text-blue-400 text-xs"></i> Educación Física</td>
+              <td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td><td class="text-center">3</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-book text-blue-400 text-xs"></i> Educación religiosa</td>
+              <td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-flask text-purple-400 text-xs"></i> Ciencia y tecnología</td>
+              <td class="text-center">4</td><td class="text-center">4</td><td class="text-center">4</td><td class="text-center">4</td><td class="text-center">4</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-briefcase text-orange-400 text-xs"></i> Educación para el trabajo</td>
+              <td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td>
+            </tr>
+            <tr>
+              <td class="font-medium text-white flex items-center gap-2"><i class="fa-solid fa-hands-holding-child text-orange-400 text-xs"></i> Tutoría y orientación educativa</td>
+              <td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td><td class="text-center">2</td>
+            </tr>
+            <tr class="plan-total">
+              <td class="font-bold">TOTAL DE HORAS SEMANALES</td>
+              <td class="text-center">35</td><td class="text-center">35</td><td class="text-center">35</td><td class="text-center">35</td><td class="text-center">35</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+    <!-- ESCOLTAS Y PROMOCIONES -->
+    <section id="historia-promociones" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Escoltas y Promociones</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Galería histórica de 2010 a 2026</p>
+      </div>
+      <div id="year-bar" class="flex gap-2 overflow-x-auto pb-2 no-scrollbar"></div>
+      <div class="neon-border-card p-6 space-y-6">
+        <div>
+          <h3 id="promo-title" class="font-lexend font-bold text-xl text-cyan-400 mb-1 drop-shadow-[0_0_8px_rgba(0,212,255,0.4)]"></h3>
+          <p id="promo-desc" class="text-slate-300 text-sm"></p>
+        </div>
+        <div class="space-y-4">
+          <h4 class="font-bold text-white text-sm">Escolta Oficial (<span id="year-esc"></span>)</h4>
+          <div id="gal-escolta" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3"></div>
+          <div id="vacio-escolta" class="hidden text-center text-slate-500 text-xs py-4">Sin fotos registradas</div>
+        </div>
+        <div class="space-y-4 pt-4 border-t border-cyan-500/20">
+          <h4 class="font-bold text-white text-sm">Promoción (<span id="year-pro"></span>)</h4>
+          <div id="gal-promocion" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3"></div>
+          <div id="vacio-promocion" class="hidden text-center text-slate-500 text-xs py-4">Sin fotos registradas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGROS -->
+    <section id="logros" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Logros e Hitos</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Reconocimientos de nuestra institución</p>
+      </div>
+      <div id="grid-logros" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- CUADRO DE HONOR -->
+    <section id="honor" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Cuadro de Honor</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Estudiantes destacados por rendimiento y disciplina</p>
+      </div>
+      <div id="filtros-honor" class="flex flex-wrap gap-2"></div>
+      <div id="grid-honor" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4"></div>
+    </section>
+<!-- STAFF DE MAESTROS Y ORGANIGRAMA JERÁRQUICO -->
+<section id="staff" class="space-y-6">
+  <div class="border-l-4 border-cyan-400 pl-4">
+    <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Staff de Maestros</h2>
+    <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Organigrama Institucional</p>
+  </div>
+
+  <!-- ESTRUCTURA DE ORGANIGRAMA CON LÍNEAS CONECTORAS -->
+  <div class="org-tree relative space-y-6 p-4 sm:p-6 bg-slate-900/60 rounded-2xl border border-cyan-500/30 mb-6">
+    
+    <!-- NIVEL 1: DIRECCIÓN -->
+    <div class="flex flex-col items-center">
+      <div id="org-director-container" class="w-full max-w-md p-5 rounded-xl bg-slate-900 border-2 border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.3)] text-center relative z-10"></div>
+      <!-- Línea conectora vertical hacia abajo -->
+      <div class="w-0.5 h-6 bg-cyan-500/60 my-1"></div>
+    </div>
+
+    <!-- NIVEL 2: AUXILIAR DE EDUCACIÓN -->
+    <div class="flex flex-col items-center">
+      <div id="org-auxiliar-container" class="w-full max-w-md p-4 rounded-xl bg-slate-900 border border-amber-400/80 shadow-[0_0_15px_rgba(245,158,11,0.2)] text-center relative z-10"></div>
+      <!-- Línea conectora vertical hacia los docentes -->
+      <div class="w-0.5 h-6 bg-cyan-500/60 my-1"></div>
+    </div>
+
+    <!-- NIVEL 3: DOCENTES (CUADRÍCULA DE ÁREAS) -->
+    <div class="relative pt-2">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-0.5 bg-cyan-500/40 hidden sm:block"></div>
+      <div id="org-lista-docentes" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-3"></div>
+    </div>
+
+    <!-- Línea conectora hacia el servicio -->
+    <div class="flex flex-col items-center pt-2">
+      <div class="w-0.5 h-6 bg-cyan-500/60 my-1"></div>
+      <!-- NIVEL 4: PERSONAL DE SERVICIO -->
+      <div id="org-servicio-container" class="w-full max-w-md p-4 rounded-xl bg-slate-900 border border-blue-400/80 shadow-[0_0_15px_rgba(59,130,246,0.2)] text-center relative z-10"></div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ACTUALIDAD Y COMUNICADOS -->
+<section id="actualidad" class="spacw-y-6">
+  <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+    <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Actualidad y Comunicados</h2>
+    <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Noticias, actividades y programación de evaluaciones</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Comunicados y Efemérides -->
+   <div class="space-y-4" id="act-comunicados">
+      <h3 class="font-lexend font-bold text-lg text-white flex items-center gap-2">
+        <i class="fa-solid fa-bullhorn text-cyan-400"></i> Últimos Comunicados
+      </h3>
+      
+      <!-- Efeméride 1: Inmaculada Concepción -->
+      <div class="neon-border-card p-5 space-y-2">
+        <div class="flex justify-between items-start">
+          <h4 class="font-bold text-white text-base">Día de la Inmaculada Concepción</h4>
+          <span class="text-xs font-semibold px-2 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">08 de Noviembre</span>
+        </div>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          Celebramos el día de la Inmaculada Concepción de María, como un signo de amor, fe y esperanza para toda nuestra comunidad educativa.
+        </p>
+      </div>
+
+      <!-- Efeméride 2: Batalla de Ayacucho -->
+      <div class="neon-border-card p-5 space-y-2">
+        <div class="flex justify-between items-start">
+          <h4 class="font-bold text-white text-base">Día de la Batalla de Ayacucho</h4>
+          <span class="text-xs font-semibold px-2 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">09 de Noviembre</span>
+        </div>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          Conmemoramos la victoria histórica del General Antonio José de Sucre que selló la independencia del Perú. ¡Honremos nuestra historia!
+        </p>
+      </div>
+    </div>
+
+       <!-- Actividades y Exámenes -->
+   <div class="space-y-4" id="act-actividades">
+      <h3 class="font-lexend font-bold text-lg text-white flex items-center gap-2">
+        <i class="fa-solid fa-calendar-check text-cyan-400"></i> Próximas Actividades y Exámenes
+      </h3>
+
+      <!-- Cronograma Municipio Escolar -->
+      <div class="neon-border-card p-5 space-y-2">
+        <div class="flex justify-between items-start">
+          <h4 class="font-bold text-white text-base">Elecciones Municipio Escolar 2027</h4>
+          <span class="text-xs font-semibold px-2 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">En Curso</span>
+        </div>
+        <ul class="text-slate-300 text-xs sm:text-sm space-y-1.5 list-disc list-inside">
+          <li><strong>09 Nov:</strong> Presentación pública de candidatos y propuestas.</li>
+          <li><strong>10 al 20 Nov:</strong> Campaña electoral en aulas.</li>
+          <li><strong>23 Nov:</strong> Debate electoral institucional.</li>
+          <li><strong>26 Nov:</strong> Elecciones y sufragio de los estudiantes.</li>
+        </ul>
+      </div>
+
+      <!-- Exámenes en Diciembre -->
+      <div class="neon-border-card p-5 space-y-2 border-cyan-400/60 shadow-[0_0_15px_rgba(0,212,255,0.25)]">
+        <div class="flex justify-between items-start">
+          <h4 class="font-bold text-cyan-300 text-base">Evaluaciones Bimestrales / Exámenes Finales</h4>
+          <span class="text-xs font-bold px-2.5 py-1 rounded bg-cyan-400 text-slate-950">Diciembre 2026</span>
+        </div>
+        <p class="text-slate-200 text-xs sm:text-sm leading-relaxed">
+          Se comunica a todos los grados (1.º a 5.º de Secundaria) que la programación de evaluaciones finales y entrega de carpetas pedagógicas se desarrollará a inicios de <strong>Diciembre</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- HORARIOS POR GRADO -->
+    <section id="horarios" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Horarios de Clase</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Programación semanal por grado (Protegido por contraseña)</p>
+      </div>
+      
+      <div id="horario-grados" class="flex flex-wrap gap-2 mb-4"></div>
+
+      <!-- Caja Autenticación -->
+      <div id="horario-auth-box" class="neon-border-card p-8 text-center max-w-md mx-auto space-y-4">
+        <div class="w-16 h-16 mx-auto rounded-full bg-cyan-500/10 border border-cyan-400 flex items-center justify-center text-cyan-400 text-2xl shadow-[0_0_15px_rgba(0,212,255,0.4)]">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h3 class="font-lexend font-bold text-lg text-white">Acceso Protegido</h3>
+        <p class="text-slate-400 text-xs">Ingresa la clave correspondiente a tu grado para visualizar el horario.</p>
+        <div class="space-y-3">
+          <input type="password" id="horario-pass" placeholder="Ingresa la contraseña..." class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/40 text-white text-sm focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_10px_rgba(0,212,255,0.3)]">
+          <button type="button" id="horario-pass-btn" class="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-colors shadow-[0_0_15px_rgba(0,212,255,0.4)]">Desbloquear Horario</button>
+        </div>
+        <div id="horario-pass-err" class="hidden text-rose-400 text-xs font-semibold"></div>
+      </div>
+
+      <!-- Contenedor del Horario -->
+      <div id="horario-publico" class="hidden"></div>
+    </section>
+
+
+    <!-- JUSTIFICACIÓN DE FALTAS -->
+    <section id="justificacion" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Justificación de Inasistencias</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Envío de justificaciones con evidencia</p>
+      </div>
+      <form id="formJust" class="neon-border-card p-6 max-w-2xl mx-auto space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <!-- CAMPO PARA ELEGIR DOCENTE -->
+        <div class="sm:col-span-2">
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Dirigido a (Profesor / Área)</label>
+          <select id="jf-docente" required class="w-full bg-slate-900/90 border border-slate-700 text-white text-xs rounded-lg p-2.5 focus:border-cyan-400 outline-none">
+            <option value="">-- Seleccione un docente --</option>
+          </select>
+        </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre del Estudiante</label>
+            <input type="text" id="jf-alumno" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">DNI del Estudiante</label>
+            <input type="text" id="jf-dni" maxlength="8" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Motivo / Detalle</label>
+          <textarea id="jf-detalle" rows="3" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Celular del Apoderado</label>
+          <input type="tel" id="jf-tel" maxlength="9" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400">
+        </div>
+        <div data-drop class="border-2 border-dashed border-cyan-500/30 p-4 rounded-xl text-center cursor-pointer hover:border-cyan-400">
+          <input type="file" id="jf-file" class="hidden">
+          <p class="text-xs text-slate-400 drop-name"><i class="fa-solid fa-paperclip mr-1"></i> Adjuntar evidencia médica/documento (Opcional)</p>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-colors shadow-[0_0_15px_rgba(0,212,255,0.4)]">Enviar Justificación</button>
+        <div id="msgJust" class="hidden"></div>
+      </form>
+    </section>
+
+    <!-- CITAS Y CONSULTAS POR WHATSAPP -->
+    <section id="citas-whatsapp" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Citas con Docentes</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Comunicación directa por WhatsApp</p>
+      </div>
+      <form id="formCita" class="neon-border-card p-6 max-w-xl mx-auto space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Seleccionar Docente</label>
+          <select id="ct-maestro" class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400"></select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre del Apoderado</label>
+          <input type="text" id="ct-nombre" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre del Estudiante</label>
+          <input type="text" id="ct-alumno" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Motivo de la Cita</label>
+          <input type="text" id="ct-motivo" required class="w-full px-4 py-2.5 rounded-xl bg-[#0b1329] border border-cyan-500/30 text-white text-sm focus:outline-none focus:border-cyan-400">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(52,211,153,0.4)]">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Iniciar Chat de WhatsApp
+        </button>
+        <div id="msgCita" class="hidden"></div>
+      </form>
+    </section>
+
+    <!-- PORTALES -->
+    <section id="portales" class="space-y-6">
+      <div class="border-l-4 border-cyan-400 pl-4 shadow-[-4px_0_12px_rgba(0,212,255,0.4)]">
+        <h2 class="font-lexend font-bold text-2xl sm:text-3xl text-white">Portales Académicos</h2>
+        <p class="text-cyan-400 text-xs sm:text-sm font-semibold">Consulta de notas y ubicaciones</p>
+      </div>
+      <div class="flex gap-2 mb-4">
+   <button type="button" onclick="mostrarPortal('notas')" id="btn-tab-notas" class="px-4 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 font-semibold border border-cyan-400 transition">Portal de Notas</button>
+<button type="button" onclick="mostrarPortal('ubicacion')" id="btn-tab-ubicacion" class="px-4 py-2 rounded-xl bg-slate-900/60 text-slate-300 font-semibold border border-slate-700 transition">Portal Ubicación</button>
+</div>
+      
+    <div id="seccion-notas" class="portal-contenido max-w-3xl mx-auto"></div>
+  <section id="portal-notas" class="pn-seccion">
+    <h2 class="pn-titulo">Consulta de Notas 2026</h2>
+    <p class="pn-sub">Ingresa tu DNI para ver tus calificaciones</p>
+    <form class="pn-buscador" id="pn-form">
+      <input id="pn-dni" inputmode="numeric" maxlength="8" placeholder="Ingrese su DNI" autocomplete="off">
+      <button type="submit">Consultar notas</button>
+    </form>
+    <div id="pn-resultado"></div>
+  </section>
+</div>
+<!-- PORTAL UBICACIÓN -->
+<div id="seccion-ubicacion" class="portal-contenido hidden max-w-xl mx-auto neon-border-card p-6 mt-6"></div>
+  <div class="text-center mb-4">
+    <h3 class="text-xl font-bold text-white">Nuestra Ubicación</h3>
+    <p class="text-slate-400 text-xs">Villa de Pasco, distrito de Tinyahuarco</p>
+  </div>
+  
+  <div class="w-full h-72 rounded-xl overflow-hidden border border-cyan-500/30 my-3">
+    <iframe 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://maps.google.com/maps?q=-10.778561,-76.240217&z=16&output=embed">
+    </iframe>
+  </div>
+
+  <div class="text-center mt-3">
+    <a href="https://maps.app.goo.gl/81ixpFHvFP3fi3v27" target="_blank" class="inline-block px-5 py-2 rounded-full border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/20 text-sm font-semibold transition-all">
+      Abrir en Maps ↗
+    </a>
+  </div>
+</div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX PARA FOTOS -->
+  <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4">
+    <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+    <img id="lightbox-img" src="" alt="Imagen ampliada" class="max-w-full max-h-[90vh] rounded-lg border border-cyan-400 shadow-[0_0_30px_rgba(0,212,255,0.4)]">
+  </div>
+
+  <!-- SCRIPT JS -->
+  <script src="script.js"></script>
+  <script src="notas.js"></script>
+  <script src="galeria.js"></script>
+  <script src="contenido.js"></script>
+  <script src="honor.js"></script>
+</body>
+</html>
